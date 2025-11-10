@@ -18,6 +18,10 @@ let targetSequences = [
     {
         notes: ['g-key', 'g-key', 'g-key', 'e-key', 'c-key', 'b-key', 'a-key'],
         action: () => showNextLineThree()
+    },
+    {
+        notes: ['f-key', 'f-key', 'e-key', 'c-key', 'd-key', 'c-key'],
+        action: () => showNextLineFour()
     }
 ];
 
@@ -48,7 +52,10 @@ const keyPlay = (event) => {
             event.target.style.backgroundColor = 'red';
             event.target.style.transform = 'translateY(3px)';
             return; // Mismatch found, exit early
-        } 
+        } else {
+            event.target.style.backgroundColor = 'green';
+            event.target.style.transform = 'translateY(3px)';
+        }
     
             // If user sequence matches target sequence length, trigger action
         if (userSequence.length === notes.length) {
@@ -143,7 +150,7 @@ const showNextLineThree = () => {
 };
 
 // This is the event handler property and function for the startOver button
-startOver.onclick = function() {
+const showNextLineFour = () => {
   nextOne.hidden = false;
   startOver.hidden = true;
   document.getElementById('word-one').innerHTML = 'HAP-';
