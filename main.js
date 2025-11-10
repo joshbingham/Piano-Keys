@@ -1,9 +1,30 @@
 // The keys and notes variables store the piano keys
-const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'high-c-key', 'c-sharp-key', 'd-sharp-key', 'f-sharp-key', 'g-sharp-key', 'a-sharp-key'];
+const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'high-c-key', 'high-d-key', 'c-sharp-key', 'd-sharp-key', 'f-sharp-key', 'g-sharp-key', 'a-sharp-key', 'high-c-sharp-key'];
 const notes = [];
 keys.forEach(function(key){
   notes.push(document.getElementById(key));
 });
+
+// Track sequence of notes
+let targetSequences = [
+    {
+        notes: ['g-key', 'g-key', 'a-key', 'g-key', 'high-c-key', 'b-key'],
+        action: () => showNextLineOne()
+    },
+    {
+        notes: ['g-key', 'g-key', 'a-key', 'g-key', 'high-d-key', 'c-key'],
+        action: () => showNextLineTwo()
+    },
+    {
+        notes: ['g-key', 'g-key', 'g-key', 'e-key', 'c-key', 'b-key', 'a-key'],
+        action: () => showNextLineThree()
+    }
+];
+
+let userSequence = [];
+
+// Track which line the user is on
+let currentLine = 0;
 
 // Write named functions that change the color of the keys below
 const keyPlay = (event) => {
@@ -11,9 +32,44 @@ const keyPlay = (event) => {
     if (key.className === 'key') {
         key.style.boxShadow = '1px 2px';
     }
-    event.target.style.backgroundColor = 'blue';
-    event.target.style.transform = 'translateY(3px)';
+    
+
+    // Track user sequence
+    userSequence.push(key.id);
+
+    // Get active target sequences based on current line
+    const activeSequence = targetSequences[currentLine];
+    const { notes, action } = activeSequence;
+
+    // Check if current user input matches the target sequence so far
+    for (let i = 0; i < userSequence.length; i++) {
+        if (userSequence[i] !== notes[i]) { 
+            userSequence = [];
+            event.target.style.backgroundColor = 'red';
+            event.target.style.transform = 'translateY(3px)';
+            return; // Mismatch found, exit early
+        } 
+    
+            // If user sequence matches target sequence length, trigger action
+        if (userSequence.length === notes.length) {
+                action();
+                userSequence = [];
+                currentLine++; // Move to next line
+            }
+        }
+
+    // Loop through target sequences to check for matches
+    targetSequences.forEach((sequence) => {
+        if (userSequence.length === sequence.notes.length) {
+            if (userSequence.every((note, index) => note === sequence.notes[index])) {
+                sequence.action();
+                userSequence = [];
+            }   
+        }   
+    });
 };
+    
+
 const keyReturn = (event) => {
     const key = event.target;
     if (key.className === 'key') {
@@ -47,7 +103,7 @@ nextThree.hidden = true;
 startOver.hidden= true;
 
 // Write anonymous event handler property and function for the first progress button
-nextOne.onclick = () => {
+const showNextLineOne = () => {
     nextTwo.hidden = false;
     nextOne.hidden = true;
     document.getElementById('letter-note-five').innerHTML = 'D';
@@ -55,7 +111,7 @@ nextOne.onclick = () => {
 };
 
 // Write anonymous event handler property and function for the second progress button
-nextTwo.onclick = () => {
+const showNextLineTwo = () => {
     nextThree.hidden = false;
     nextTwo.hidden = true;
     document.getElementById('word-five').innerHTML = 'DEAR';
@@ -68,7 +124,7 @@ nextTwo.onclick = () => {
 };
 
 // Write anonymous event handler property and function for the third progress button
-nextThree.onclick = () => {
+const showNextLineThree = () => {
     startOver.hidden = false;
     nextThree.hidden = true;
     document.getElementById('word-one').innerHTML = 'HAP-';
