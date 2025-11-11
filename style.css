@@ -30,6 +30,7 @@ body{
   background-color: #fd4d3f;
   margin-top: 30px;
   position: relative;
+  white-space: nowrap;
 }
 .key{
   width: 30px;
