@@ -29,6 +29,7 @@ body{
   margin: 0 auto;
   background-color: #fd4d3f;
   margin-top: 30px;
+  position: relative;
 }
 .key{
   width: 30px;
