@@ -23,50 +23,33 @@ body{
   font-style: italic;
 }
 .piano{
-  width: 335px; 
-  height: 210px; 
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin: 30px auto; 
+  width: 335px;
+  height: 210px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fd4d3f;
+  margin-top: 30px;
 }
 .key{
-  flex: 0 0 40px;
-  /* width: 30px; */
+  width: 30px;
   height: 200px;
-  /* display: inline-block; */
+  display: inline-block;
   border: solid #141c3a 2px;
   box-shadow: 2px 5px;
   background-color: white;
   color: #141c3a;
   z-index: 1;
-  position: relative;
 }
 .black-key{
   width: 25px;
   height: 100px;
+  display: inline-block;
   background-color: #141c3a;
   color: white;
-  position: absolute; /* position manually within the .piano container */
+  position: absolute;
+  margin-left: -12px;
+  padding: 0px;
   z-index: 2;
-}
-#c-sharp-key{
-  left: 5px;
-}
-#d-sharp-key{
-  left: 45px;
-}
-#f-sharp-key{
-  left: 135px;
-}
-#g-sharp-key{
-  left: 175px;
-}
-#a-sharp-key{
-  left: 220px;
-}
-#high-c-sharp-key{
-  left: 305px;
 }
 .keynote{
   width: 20px;
