@@ -41,7 +41,7 @@ body{
   position: relative;
 }
 .black-key {
-  width: 20px;
+  width: 25px;
   height: 120px;
   background-color: #141c3a;
   color: white;
@@ -52,11 +52,11 @@ body{
 }
 /* Position each black key relative to the left edge of the piano */
 #c-sharp-key { left: 22px; }
-#d-sharp-key { left: 52px; }
-#f-sharp-key { left: 112px; }
-#g-sharp-key { left: 142px; }
-#a-sharp-key { left: 172px; }
-#high-c-sharp-key { left: 232px; }
+#d-sharp-key { left: 62px; }
+#f-sharp-key { left: 136px; }
+#g-sharp-key { left: 172px; }
+#a-sharp-key { left: 210px; }
+#high-c-sharp-key { left: 285px; }
 .keynote{
   width: 20px;
   height: 20px;
