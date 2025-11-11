@@ -23,14 +23,12 @@ body{
   font-style: italic;
 }
 .piano{
-  /* width: 335px; */
-  /* height: 210px; */
+  width: 335px; 
+  height: 210px; 
   display: flex;
   justify-content: center;
   position: relative;
-  /* margin: 0 auto; */
-  /* background-color: #fd4d3f; */
-  /* margin-top: 30px; */
+  margin: 30px auto; 
 }
 .key{
   flex: 0 0 40px;
@@ -47,13 +45,28 @@ body{
 .black-key{
   width: 25px;
   height: 100px;
-  display: inline-block; 
   background-color: #141c3a;
   color: white;
-  position: absolute;
-  margin-left: -12px;
-  padding: 0px; 
+  position: absolute; /* position manually within the .piano container */
   z-index: 2;
+}
+#c-sharp-key{
+  left: 5px;
+}
+#d-sharp-key{
+  left: 45px;
+}
+#f-sharp-key{
+  left: 135px;
+}
+#g-sharp-key{
+  left: 175px;
+}
+#a-sharp-key{
+  left: 220px;
+}
+#high-c-sharp-key{
+  left: 305px;
 }
 .keynote{
   width: 20px;
