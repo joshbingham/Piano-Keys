@@ -51,6 +51,11 @@ body{
   padding: 0px;
   z-index: 2;
 }
+#c-sharp-key { left: 630px; }
+#d-sharp-key { left: 665px; }
+#f-sharp-key { left: 740px; }
+#g-sharp-key { left: 780px; }
+#a-sharp-key { left: 820px; }
 .keynote{
   width: 20px;
   height: 20px;
