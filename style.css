@@ -51,8 +51,8 @@ body{
   border-radius: 0 0 3px 3px;
 }
 /* Position each black key relative to the left edge of the piano */
-#c-sharp-key { left: 22px; }
-#d-sharp-key { left: 62px; }
+#c-sharp-key { left: 24px; }
+#d-sharp-key { left: 64px; }
 #f-sharp-key { left: 136px; }
 #g-sharp-key { left: 172px; }
 #a-sharp-key { left: 210px; }
