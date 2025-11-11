@@ -22,15 +22,14 @@ body{
   letter-spacing: 1px;
   font-style: italic;
 }
-.piano{
+.piano {
   width: 345px;
   height: 210px;
-  display: block;
-  margin: 0 auto;
+  position: relative; /* important for positioning black keys */
+  margin: 30px auto;
   background-color: #fd4d3f;
-  margin-top: 30px;
 }
-.key{
+.key {
   width: 30px;
   height: 200px;
   display: inline-block;
@@ -39,23 +38,25 @@ body{
   background-color: white;
   color: #141c3a;
   z-index: 1;
+  position: relative;
 }
-.black-key{
-  width: 25px;
-  height: 100px;
-  display: inline-block;
+.black-key {
+  width: 20px;
+  height: 120px;
   background-color: #141c3a;
   color: white;
   position: absolute;
-  margin-left: -12px;
-  padding: 0px;
+  top: 0;
   z-index: 2;
+  border-radius: 0 0 3px 3px;
 }
-#c-sharp-key { left: 630px; }
-#d-sharp-key { left: 665px; }
-#f-sharp-key { left: 740px; }
-#g-sharp-key { left: 780px; }
-#a-sharp-key { left: 820px; }
+/* Position each black key relative to the left edge of the piano */
+#c-sharp-key { left: 22px; }
+#d-sharp-key { left: 52px; }
+#f-sharp-key { left: 112px; }
+#g-sharp-key { left: 142px; }
+#a-sharp-key { left: 172px; }
+#high-c-sharp-key { left: 232px; }
 .keynote{
   width: 20px;
   height: 20px;
