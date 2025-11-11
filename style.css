@@ -47,12 +47,12 @@ body{
 .black-key{
   width: 25px;
   height: 100px;
-  /* display: inline-block; */
+  display: inline-block; 
   background-color: #141c3a;
   color: white;
   position: absolute;
-  /* margin-left: -12px; */
-  /* padding: 0px; */
+  margin-left: -12px;
+  padding: 0px; 
   z-index: 2;
 }
 .keynote{
